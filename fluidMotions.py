@@ -4,6 +4,7 @@ from naoqi import ALProxy
 from naoqi import motion
 import time
 import almath
+import random
 
 import threading
 from threading import Thread
@@ -45,7 +46,6 @@ def main(robotIP):
    menubar = Menu(root)     
    def donothing(): 
       print "dummy button"
-
 
    def stand():
       postureProxy.goToPosture("Stand", 0.5)
@@ -2351,44 +2351,186 @@ def main(robotIP):
 
 
 
-
-
    def saySmart():
       ## start in crouch
       crouch()
 
       ## gesture categories
-      question = ["?", "I don't know", "why", "what"]
-      makeAPoint = ["I think", "I know", "I get it", "I will"]
-      agree = ["yes", "Yes", "I agree", "you're right", "good", "great"]
-      disagree = ["no", "No", "I disagree"]
-      greet = ["Hello", "hello", "hey", "Hi", "hi"]
+      question = ["?"]
+      makeAPoint = ["I think ", "I thought ", "I know ", "I get it ", "I will ", "Oh okay ", "Ohhh. ", "Oh ", "Maybe "]
+      agree = ["yes", "Yes ", "I agree ", "you're right ", " good ", " great "]
+      disagree = [" no ", "No ", "I disagree "]
+      greet = ["Hello ", " hello ", "Hey ", " hey ", "Hi ", " hi "]
 
-      ## order of importance: question, agree, greet, makeAPoint
-      
-      ## NAOdialogEx2.txt
-      
-      ## Hello, I think it is Wednesday.
-      ## Is it a good day to go swimming?
-      ## Yes, it is a great day for swimming.
-      ## I will swim.
+      questionP1 = 0
+      questionP2 = 0
+      makeAPointP1 = 0
+      makeAPointP2 = 0
+      agreeP1 = 0
+      agreeP2 = 0
+      disagreeP1 = 0
+      disagreeP2 = 0
+      greetP1 = 0
+      greetP2 = 0
 
+      questionCount = 0
+      makeAPointCount = 0
+      agreeCount = 0
+      disagreeCount = 0
+      greetCount = 0
+
+      threshold = 4
+
+      
       with open("NAOdialogEx2.txt") as f:
           for line in f:
-             if any(word in line for word in question):
-                tts.post.say(line)
-                largeShrug()
-             elif any(word in line for word in agree):
-                tts.post.say(line)
-                nodYes()
-             elif any(word in line for word in greet):
-                tts.post.say(line)
-                waveLeft()
-             elif any(word in line for word in makeAPoint):
-                tts.post.say(line)
-                handOutLeft()
-             else:
+            if (questionCount > threshold):
+               questionP1 = (questionP1)/2
+            #######################
+            if (makeAPointCount < threshold):
+               makeAPointP1 = makeAPointP1/2
+            #######################
+            if (agreeCount < threshold):
+               agreeP1 = agreeP1/2
+            #######################
+            if (disagreeCount < threshold):
+               disagreeP1 = disagreeP1/2
+            #######################
+            if (greetCount < threshold):
+               greetP1 = greetP1/2
+
+            
+            random_number = random.random()
+
+            ## QUESTION ##  
+            if any(word in line for word in question):
+               questionP1 = 0.33
+               questionP2 = 0.495
+               ##  1/3 chance of 1st gesture
+               ##  1/6 chance of 2nd gesture
+               ##  1/2 chance of NO gesture
+               if(random_number <= questionP1):
+                  tts.post.say(line)
+                  largeShrug()
+               elif any(word in line for word in agree):
+                  if(questionP1 < random_number <= questionP2):
+                     tts.post.say(line)
+                     nodYes()
+               elif any(word in line for word in disagree):
+                  if(questionP1 < random_number <= questionP2):
+                     tts.post.say(line)
+                     shakeNo()
+               elif any(word in line for word in greet):
+                  if(questionP1 < random_number <= questionP2):
+                     tts.post.say(line)
+                     waveLeft()
+               elif any(word in line for word in makeAPoint):
+                  if(questionP1 < random_number <= questionP2):
+                     tts.post.say(line)
+                     if (int(random_number * 100) % 2 == 0):
+                        handOutLeft()
+                     else:
+                        handOutRight()
+               else:
+                  tts.post.say(line)
+            ## AGREE ##   
+            elif any(word in line for word in agree):
+               agreeP1 = 0.33
+               agreeP2 = 0.495
+               if(random_number <= agreeP1):
+                  tts.post.say(line)
+                  nodYes()
+               elif any(word in line for word in disagree):
+                  if(agreeP1 < random_number <= agreeP2):
+                     tts.post.say(line)
+                     shakeNo()
+               elif any(word in line for word in greet):
+                  if(agreeP1 < random_number <= agreeP2):
+                     tts.post.say(line)
+                     waveLeft()
+               elif any(word in line for word in makeAPoint):
+                  if(agreeP1 < random_number <= agreeP2):
+                     tts.post.say(line)
+                     if (int(random_number * 100) % 2 == 0):
+                        handOutLeft()
+                     else:
+                        handOutRight()
+               else:
+                  tts.post.say(line)
+            ## DISAGREE ##   
+            elif any(word in line for word in disagree):
+               disagreeP1 = 0.33
+               disagreeP2 = 0.495
+               if(random_number <= disagreeP1):
+                  tts.post.say(line)
+                  shakeNo()
+               elif any(word in line for word in greet):
+                  if(disagreeP1 < random_number <= disagreeP2):
+                     tts.post.say(line)
+                     waveLeft()
+               elif any(word in line for word in makeAPoint):
+                  if(disagreeP1 < random_number <= disagreeP2):
+                     tts.post.say(line)
+                     if (int(random_number * 100) % 2 == 0):
+                        handOutLeft()
+                     else:
+                        handOutRight()
+               else:
+                  tts.post.say(line)
+            ## GREET ## 
+            elif any(word in line for word in greet):
+               greetP1 = 0.33
+               greetP2 = 0.495
+               if(random_number <= greetP1):
+                  tts.post.say(line)
+                  waveLeft()
+               elif any(word in line for word in makeAPoint):
+                  if(greetP1 < random_number <= greetP2):
+                     tts.post.say(line)
+                     if (int(random_number * 100) % 2 == 0):
+                        handOutLeft()
+                     else:
+                        handOutRight()
+               else:
+                  tts.post.say(line)
+            ## MAKE A POINT ##
+            elif any(word in line for word in makeAPoint):
+               makeAPointP1 = 0.33
+               if(random_number <= makeAPointP1):
+                  tts.post.say(line)
+                  if (int(random_number * 100) % 2 == 0):
+                     handOutLeft()
+                  else:
+                     handOutRight()
+               else:
+                  tts.post.say(line)
+            else:
                tts.say(line)
+
+##            elif any(word in line for word in agree) and (random_number >= agreeP):
+##               tts.post.say(line)
+##               nodYes()
+##               agreeCount = agreeCount+1
+##               ## print ("agreeCount: " + str(agreeCount))
+##            elif any(word in line for word in disagree) and (random_number >= disagreeP):
+##               tts.post.say(line)
+##               shakeNo()
+##               disagreeCount = disagreeCount+1
+##               ## print ("disagreeCount: " + str(disagreeCount))
+##            elif any(word in line for word in greet) and (random_number >= greetP):
+##               tts.post.say(line)
+##               waveLeft()
+##               greetCount = greetCount+1
+##               ## print ("greetCount: " + str(greetCount))
+##            elif any(word in line for word in makeAPoint) and (random_number >= makeAPointP):
+##               tts.post.say(line)
+##               if (int(random_number * 100) % 2 == 0):
+##                  handOutLeft()
+##               else:
+##                  handOutRight()
+##               makeAPointCount = makeAPointCount+1
+##               ## print ("makeAPointCount: " + str(makeAPointCount))
+
 
 
 
@@ -2656,6 +2798,7 @@ if __name__ == "__main__":
         robotIp = sys.argv[1]
     main(robotIp)
 
+
 ##[80.9*almath.TO_RAD],
 ##[8.3*almath.TO_RAD],
 ##[-45.3*almath.TO_RAD],
@@ -2667,3 +2810,21 @@ if __name__ == "__main__":
 ##[45.1*almath.TO_RAD],
 ##[60.1*almath.TO_RAD],
 ##[-10.6*almath.TO_RAD]]
+
+##Test one: Questions
+##That doesn't makes sense?
+##I don't know
+##Why not?
+##Can you tell me?
+##I don't know
+##Who are you?
+##Are you still there?
+##Can you hear me?
+##How is it going?
+##I don't know
+##Can you say that again please?
+##To be honest, I have no idea what you said?
+##I don't know
+##What did you say?
+##What time is it?
+##What do you think?
