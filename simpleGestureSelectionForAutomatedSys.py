@@ -335,7 +335,7 @@ def yawnAndStretch():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("eawyn")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def lookAtNailsLeft():
@@ -381,7 +381,7 @@ def lookAtNailsLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("hum")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def lookAtNailsRight():
@@ -426,7 +426,7 @@ def lookAtNailsRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("hum")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handOutLeft():
@@ -472,7 +472,7 @@ def handOutLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("She ran three kilometers")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handOutRight():
@@ -519,7 +519,7 @@ def handOutRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("So in 18 minutes she will be 6 kilometers away.")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def largeShrug():
@@ -566,7 +566,7 @@ def largeShrug():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I don't know how to solve it")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handsOnHips():
@@ -612,7 +612,7 @@ def handsOnHips():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I think I know what to do!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def waveLeft():
@@ -658,7 +658,7 @@ def waveLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("Hello! Nice to meet you.")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def waveRight():
@@ -705,7 +705,7 @@ def waveRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("Hello! Nice to meet you.")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def nodYes():
@@ -754,7 +754,7 @@ def nodYes():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("Yes, I agree")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def shakeNo():
@@ -802,7 +802,7 @@ def shakeNo():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I don't think that's right")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def lookLeft():
@@ -849,7 +849,7 @@ def lookLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("Take a look at the screen here!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def lookRight():
@@ -895,7 +895,7 @@ def lookRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("Take a look at the screen here!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def facepalmLeft():
@@ -942,7 +942,7 @@ def facepalmLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I can't believe I didn't see that before!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def facepalmRight():
@@ -989,7 +989,7 @@ def facepalmRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I can't believe I didn't see that before!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def cantHearLeft():
@@ -1036,7 +1036,7 @@ def cantHearLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I didn't hear you, can you repeat that?")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def cantHearRight():
@@ -1083,7 +1083,7 @@ def cantHearRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I didn't hear you, can you repeat that?")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handOnChestLeft():
@@ -1130,7 +1130,7 @@ def handOnChestLeft():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I think I know the answer!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handOnChestRight():
@@ -1177,7 +1177,7 @@ def handOnChestRight():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I think I know the answer!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handsOut():
@@ -1224,7 +1224,7 @@ def handsOut():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("I think I know the answer!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def cheering():
@@ -1270,7 +1270,7 @@ def cheering():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("We did it!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 def handsOnHead():
@@ -1317,7 +1317,7 @@ def handsOnHead():
     motionProxy.post.angleInterpolation(names, angleLists, timeLists, isAbsolute)
     ## tts.say("This is really confusing!")
     time.sleep(1.0)
-    postureProxy.goToPosture("Crouch", 0.0)
+    postureProxy.goToPosture("Stand", 0.0)
 
 
 ##_________________________________CARTOON GESTURES______________________________________##
